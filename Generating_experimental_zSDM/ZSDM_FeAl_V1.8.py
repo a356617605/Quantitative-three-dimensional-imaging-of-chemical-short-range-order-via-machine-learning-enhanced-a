@@ -53,7 +53,7 @@ from itertools import product
 from fast_histogram import histogram2d as fast_histogram2d 
 # import multiprocessing
 from joblib import Parallel, delayed
-from tqdm import tqdm
+#from tqdm import tqdm
 from os import listdir
 import re
 
