@@ -105,7 +105,7 @@ def ZSDM(count):
     y_tot = [];
     num_in_SDM = 0;
     max_cand =0
-    cand = tree.query_ball_point(data_voxel_sphere, 1.5,return_sorted=False, n_jobs = -1)
+    cand = tree.query_ball_point(data_voxel_sphere, 1.5,return_sorted=False, n_jobs = 1)
     for list in cand:
         num_in_SDM += len(list);
         if (len(list) > max_cand):
