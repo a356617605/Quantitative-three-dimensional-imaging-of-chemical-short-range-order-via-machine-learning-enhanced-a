@@ -105,7 +105,7 @@ def ZSDM(count):
     y_tot = [];
     num_in_SDM = 0;
     max_cand =0
-    cand = tree.query_ball_point(data_voxel_sphere, 1.5,return_sorted=False, n_jobs = 1)
+    cand = tree.query_ball_point(data_voxel_sphere, 1.5,return_sorted=False, n_jobs = 8)
     for list in cand:
         num_in_SDM += len(list);
         if (len(list) > max_cand):
@@ -309,13 +309,13 @@ if __name__ == "__main__":
         print ('The running time of spatial.cKDTree = ', temp_endtime-temp_starttime)
         #Yue: approximately 1 min on my computer
         #%%
-        index_voxel_sphere = tree.query_ball_point(data_sphere_points, voxel/2, n_jobs = 1) 
+        index_voxel_sphere = tree.query_ball_point(data_sphere_points, voxel/2, n_jobs = 8) 
         #-1 for all processors
         #%% generating SDMs 
         SDM_bins = 200   #define pixel density
         zSDM_output = np.zeros((int(0.69/0.015*2+1), len(index_voxel_sphere)*2))
         myList = range(0,len(index_voxel_sphere))
-        zSDM_output = Parallel(n_jobs=1, verbose=2)(delayed(ZSDM)(i) for i in myList)
+        zSDM_output = Parallel(n_jobs=8, verbose=2)(delayed(ZSDM)(i) for i in myList)
   
         # zSDM_simu_0_pre, zSDM_simu_1_pre = zip(*zSDM_output)
         if element_num == 1:
