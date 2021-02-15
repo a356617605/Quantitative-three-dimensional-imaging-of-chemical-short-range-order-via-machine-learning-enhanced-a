@@ -309,7 +309,7 @@ if __name__ == "__main__":
         print ('The running time of spatial.cKDTree = ', temp_endtime-temp_starttime)
         #Yue: approximately 1 min on my computer
         #%%
-        index_voxel_sphere = tree.query_ball_point(data_sphere_points, voxel/2, n_jobs = -1) 
+        index_voxel_sphere = tree.query_ball_point(data_sphere_points, voxel/2, n_jobs = 8) 
         #-1 for all processors
         #%% generating SDMs 
         SDM_bins = 200   #define pixel density
