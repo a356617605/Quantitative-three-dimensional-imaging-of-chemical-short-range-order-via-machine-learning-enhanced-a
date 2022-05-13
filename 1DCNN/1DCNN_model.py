@@ -191,11 +191,7 @@ for k, (train, test) in enumerate(k_fold.split(train_test[:, :-1], train_test[:,
     
     # Define network structure
     model = tf.keras.models.Sequential([
-    tf.keras.layers.Conv1D(64, 10, strides=1, padding='valid',input_shape=(n_input, n_features), activation='relu'),   
-    # tf.keras.layers.Conv1D(64, 10, strides=1, padding='valid', activation='relu'),   
-    # tf.keras.layers.Conv1D(64, 10, strides=1, padding='valid', activation='relu'), 
-    # tf.keras.layers.Conv1D(64, 10, strides=1, padding='valid', activation='relu'), 
-    # tf.keras.layers.Conv1D(64, 10, strides=1, padding='valid', activation='relu'), 
+    tf.keras.layers.Conv1D(64, 10, strides=1, padding='same',input_shape=(n_input, n_features), activation='relu'),   
     tf.keras.layers.Dropout(0.5),   
     tf.keras.layers.MaxPool1D(pool_size=2),
     tf.keras.layers.Flatten(),
