@@ -9,7 +9,7 @@ import shutil
 from Euler_transformation import *
 from generator_single_SDMs import *
 #%% Input file and parameters
-data = np.loadtxt('ggoutputFile_D03_3nm_a_0.287.txt')
+data = np.loadtxt('ggoutputFile_D03_a_0.287.txt')
 lattice_para = 0.287
 
 sigma_xy_all = np.arange(0.2,0.8,0.2)
